@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         # build and publish in parallel: linux/386, linux/amd64, windows/386, windows/amd64, darwin/amd64, darwin/arm64
-        goos: [linux, windows, darwin]
+        goos: [linux, windows, darwin, android]
         goarch: ["386", amd64, arm, arm64]
         exclude:
           - goos: darwin
@@ -23,6 +23,8 @@ jobs:
           - goos: darwin
             goarch: "386"
           - goos: windows
+            goarch: arm64
+          - goos: android
             goarch: arm64
       fail-fast: true
     steps:
